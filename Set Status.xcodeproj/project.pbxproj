@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3871538224415E830016A531 /* MarkTime.psd in Resources */ = {isa = PBXBuildFile; fileRef = 3871538124415E830016A531 /* MarkTime.psd */; };
 		38F957B624415DCC00A56036 /* Set Status WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 38F957B524415DCC00A56036 /* Set Status WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		38F957BC24415DCC00A56036 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F957BA24415DCC00A56036 /* Interface.storyboard */; };
 		38F957BE24415DCE00A56036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F957BD24415DCE00A56036 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3871538124415E830016A531 /* MarkTime.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarkTime.psd; sourceTree = "<group>"; };
 		38F957B124415DCC00A56036 /* Set Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F957B524415DCC00A56036 /* Set Status WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set Status WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F957BB24415DCC00A56036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				38F957BA24415DCC00A56036 /* Interface.storyboard */,
 				38F957BD24415DCE00A56036 /* Assets.xcassets */,
+				3871538124415E830016A531 /* MarkTime.psd */,
 				38F957BF24415DCE00A56036 /* Info.plist */,
 			);
 			path = "Set Status WatchKit App";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F957BE24415DCE00A56036 /* Assets.xcassets in Resources */,
+				3871538224415E830016A531 /* MarkTime.psd in Resources */,
 				38F957BC24415DCC00A56036 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
