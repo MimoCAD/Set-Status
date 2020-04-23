@@ -22,31 +22,45 @@ struct ContentView: View {
             }) {
                 Text(EnrouteText)
             }
-            .foregroundColor(.red)
+            .buttonStyle(BtnStyle(bgColor: .red, fgColor: .white))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
 
             Button(action: {
                 self.OnSceneText = getCurrentTime()
             }) {
                 Text(OnSceneText)
-            }.foregroundColor(.yellow)
+            }
+            .buttonStyle(BtnStyle(bgColor: .yellow, fgColor: .black))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
 
             Button(action: {
                 self.LeaveSceneText = getCurrentTime()
             }) {
                 Text(LeaveSceneText)
-            }.foregroundColor(.green)
+            }
+            .buttonStyle(BtnStyle(bgColor: .green, fgColor: .black))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
 
             Button(action: {
                 self.AtHospitalText = getCurrentTime()
             }) {
                 Text(AtHospitalText)
-            }.foregroundColor(.blue)
+            }
+            .buttonStyle(BtnStyle(bgColor: .blue, fgColor: .black))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
 
             Button(action: {
                 self.InServiceText = getCurrentTime()
             }) {
                 Text(InServiceText)
-            }.foregroundColor(.gray)
+            }
+            .buttonStyle(BtnStyle(bgColor: .white, fgColor: .black))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
 
             Button(action: {
                 self.EnrouteText = "Enroute"
@@ -57,8 +71,12 @@ struct ContentView: View {
             }) {
                 Text("Reset")
             }
+            .buttonStyle(BtnStyle(bgColor: .clear, fgColor: .gray))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         .navigationBarTitle("Times")
+        .environment(\.defaultMinListRowHeight, 8)
+        .listRowPlatterColor(.clear)
     }
 }
 
@@ -74,4 +92,19 @@ func getCurrentTime() -> String {
         dateFormatter.dateFormat = "HH:mm:ss"
 
     return dateFormatter.string(from: Date())
+}
+
+// Button Styles
+struct BtnStyle: ButtonStyle {
+    var bgColor: Color
+    var fgColor: Color
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(4)
+            .foregroundColor(fgColor)
+            .background(bgColor)
+            .cornerRadius(6)
+    }
 }
