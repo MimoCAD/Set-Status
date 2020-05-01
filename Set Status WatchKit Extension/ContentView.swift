@@ -9,47 +9,68 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var EnrouteText = "Enroute"
-    @State var OnSceneText = "On Scene"
-    @State var LeaveSceneText = "Leave Scene"
-    @State var AtHospitalText = "At Hospital"
-    @State var InServiceText = "In Service"
-
+    @State var CallRecdText = "CALL REC'D"
+    @State var EnrouteText = "ENROUTE"
+    @State var AtSceneText = "AT SCENE"
+    @State var FromSceneText = "FROM SCENE"
+    @State var AtDestinationText = "AT DESTINATION"
+    @State var InServiceText = "IN SERVICE"
+    @State var InQuartersText = "IN QUARTERS"
+    
+    let Statuses = [
+        ("CALL REC'D",     Color(red: 215 / 255, green:  10 / 255, blue: 213 / 255), Color.white),
+        ("ENROUTE",        Color(red: 220 / 255, green:  53 / 255, blue:  69 / 255), Color.white),
+        ("AT SCENE",       Color(red: 255 / 255, green: 193 / 255, blue:   7 / 255), Color.black),
+        ("FROM SCENE",     Color(red:  40 / 255, green: 167 / 255, blue:  69 / 255), Color.white),
+        ("AT DESTINATION", Color(red:   0 / 255, green: 123 / 255, blue: 255 / 255), Color.white),
+        ("IN SERVICE",     Color(red:  23 / 255, green: 162 / 255, blue: 184 / 255), Color.white),
+        ("IN QUARTERS",    Color(red: 108 / 255, green: 117 / 255, blue: 125 / 255), Color.white),
+    ];
+    
     var body: some View {
         List {
+            Button(action: {
+                self.CallRecdText = getCurrentTime()
+            }) {
+                Text(CallRecdText)
+            }
+            .buttonStyle(BtnStyle(bgColor: Color(red: 215 / 255, green: 10 / 255, blue: 213 / 255), fgColor: .white))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
+
             Button(action: {
                 self.EnrouteText = getCurrentTime()
             }) {
                 Text(EnrouteText)
             }
-            .buttonStyle(BtnStyle(bgColor: .red, fgColor: .white))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 220 / 255, green: 53 / 255, blue: 69 / 255), fgColor: .white))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowPlatterColor(.clear)
 
             Button(action: {
-                self.OnSceneText = getCurrentTime()
+                self.AtSceneText = getCurrentTime()
             }) {
-                Text(OnSceneText)
+                Text(AtSceneText)
             }
-            .buttonStyle(BtnStyle(bgColor: .yellow, fgColor: .black))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 255 / 255, green: 193 / 255, blue: 7 / 255), fgColor: .black))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowPlatterColor(.clear)
 
             Button(action: {
-                self.LeaveSceneText = getCurrentTime()
+                self.FromSceneText = getCurrentTime()
             }) {
-                Text(LeaveSceneText)
+                Text(FromSceneText)
             }
-            .buttonStyle(BtnStyle(bgColor: .green, fgColor: .black))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 40 / 255, green: 167 / 255, blue: 69 / 255), fgColor: .white))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowPlatterColor(.clear)
 
             Button(action: {
-                self.AtHospitalText = getCurrentTime()
+                self.AtDestinationText = getCurrentTime()
             }) {
-                Text(AtHospitalText)
+                Text(AtDestinationText)
             }
-            .buttonStyle(BtnStyle(bgColor: .blue, fgColor: .black))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 0 / 255, green: 123 / 255, blue: 255 / 255), fgColor: .white))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowPlatterColor(.clear)
 
@@ -58,21 +79,34 @@ struct ContentView: View {
             }) {
                 Text(InServiceText)
             }
-            .buttonStyle(BtnStyle(bgColor: .white, fgColor: .black))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 23 / 255, green: 162 / 255, blue: 184 / 255), fgColor: .white))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowPlatterColor(.clear)
 
             Button(action: {
-                self.EnrouteText = "Enroute"
-                self.OnSceneText = "On Scene"
-                self.LeaveSceneText = "Leave Scene"
-                self.AtHospitalText = "At Hospital"
-                self.InServiceText = "In Service"
+                self.InQuartersText = getCurrentTime()
+            }) {
+                Text(InQuartersText)
+            }
+            .buttonStyle(BtnStyle(bgColor: Color(red: 108 / 255, green: 117 / 255, blue: 125 / 255), fgColor: .white))
+            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
+
+            Button(action: {
+                self.CallRecdText = "CALL REC'D"
+                self.EnrouteText = "ENROUTE"
+                self.AtSceneText = "AT SCENE"
+                self.FromSceneText = "FROM SCENE"
+                self.AtDestinationText = "AT DESTINATION"
+                self.InServiceText = "IN SERVICE"
+                self.InQuartersText = "IN QUARTERS"
             }) {
                 Text("Reset")
             }
-            .buttonStyle(BtnStyle(bgColor: .clear, fgColor: .gray))
+            .buttonStyle(BtnStyle(bgColor: Color(red: 255 / 255, green: 255 / 255, blue: 255 / 255), fgColor: .black))
             .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowPlatterColor(.clear)
+
         }
         .navigationBarTitle("Times")
         .environment(\.defaultMinListRowHeight, 8)
@@ -102,9 +136,9 @@ struct BtnStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(4)
+            .padding(8)
             .foregroundColor(fgColor)
             .background(bgColor)
-            .cornerRadius(6)
+            .cornerRadius(8)
     }
 }

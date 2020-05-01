@@ -432,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Set Status WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				ENABLE_PREVIEWS = YES;
@@ -456,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Set Status WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				ENABLE_PREVIEWS = YES;
@@ -481,6 +483,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				IBSC_MODULE = Set_Status_WatchKit_Extension;
 				INFOPLIST_FILE = "Set Status WatchKit App/Info.plist";
@@ -500,6 +503,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				IBSC_MODULE = Set_Status_WatchKit_Extension;
 				INFOPLIST_FILE = "Set Status WatchKit App/Info.plist";
@@ -517,7 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.mimocad.Set-Status";
@@ -530,7 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S23UCK54G8;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.mimocad.Set-Status";
