@@ -9,104 +9,55 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var CallRecdText = "CALL REC'D"
-    @State var EnrouteText = "ENROUTE"
-    @State var AtSceneText = "AT SCENE"
-    @State var FromSceneText = "FROM SCENE"
-    @State var AtDestinationText = "AT DESTINATION"
-    @State var InServiceText = "IN SERVICE"
-    @State var InQuartersText = "IN QUARTERS"
-    
-    let Statuses = [
-        ("CALL REC'D",     Color(red: 215 / 255, green:  10 / 255, blue: 213 / 255), Color.white),
-        ("ENROUTE",        Color(red: 220 / 255, green:  53 / 255, blue:  69 / 255), Color.white),
-        ("AT SCENE",       Color(red: 255 / 255, green: 193 / 255, blue:   7 / 255), Color.black),
-        ("FROM SCENE",     Color(red:  40 / 255, green: 167 / 255, blue:  69 / 255), Color.white),
-        ("AT DESTINATION", Color(red:   0 / 255, green: 123 / 255, blue: 255 / 255), Color.white),
-        ("IN SERVICE",     Color(red:  23 / 255, green: 162 / 255, blue: 184 / 255), Color.white),
-        ("IN QUARTERS",    Color(red: 108 / 255, green: 117 / 255, blue: 125 / 255), Color.white),
-    ];
-    
+    @State var CallRecd      = Status(Text: "CALL REC'D",     bgColor: Colors.Magenta, fgColor: Colors.White)
+    @State var Enroute       = Status(Text: "ENROUTE",        bgColor: Colors.Red,     fgColor: Colors.White)
+    @State var AtScene       = Status(Text: "AT SCENE",       bgColor: Colors.Yellow,  fgColor: Colors.Black)
+    @State var FromScene     = Status(Text: "FROM SCENE",     bgColor: Colors.Green,   fgColor: Colors.White)
+    @State var AtDestination = Status(Text: "AT DESTINATION", bgColor: Colors.Blue,    fgColor: Colors.White)
+    @State var InService     = Status(Text: "IN SERVICE",     bgColor: Colors.Cyan,    fgColor: Colors.White)
+    @State var InQuarters    = Status(Text: "IN QUARTERS",    bgColor: Colors.Gray,    fgColor: Colors.White)
+           var Reset         = Status(Text: "Reset",          bgColor: Colors.White,   fgColor: Colors.Black)
+
     var body: some View {
         List {
-            Button(action: {
-                self.CallRecdText = getCurrentTime()
-            }) {
-                Text(CallRecdText)
+            statusButton(Status: CallRecd) {
+                     CallRecd = Status(Text: "TOA: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Magenta)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 215 / 255, green: 10 / 255, blue: 213 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.EnrouteText = getCurrentTime()
-            }) {
-                Text(EnrouteText)
+            statusButton(Status: Enroute) {
+                      Enroute = Status(Text: "  2: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Red)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 220 / 255, green: 53 / 255, blue: 69 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.AtSceneText = getCurrentTime()
-            }) {
-                Text(AtSceneText)
+            statusButton(Status: AtScene) {
+                      AtScene = Status(Text: " 21: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Yellow)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 255 / 255, green: 193 / 255, blue: 7 / 255), fgColor: .black))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.FromSceneText = getCurrentTime()
-            }) {
-                Text(FromSceneText)
+            statusButton(Status: FromScene) {
+                    FromScene = Status(Text: " 18: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Green)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 40 / 255, green: 167 / 255, blue: 69 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.AtDestinationText = getCurrentTime()
-            }) {
-                Text(AtDestinationText)
+            statusButton(Status: AtDestination) {
+                AtDestination = Status(Text: "  6: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Blue)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 0 / 255, green: 123 / 255, blue: 255 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.InServiceText = getCurrentTime()
-            }) {
-                Text(InServiceText)
+            statusButton(Status: InService) {
+                    InService = Status(Text: " 28: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Cyan)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 23 / 255, green: 162 / 255, blue: 184 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.InQuartersText = getCurrentTime()
-            }) {
-                Text(InQuartersText)
+            statusButton(Status: InQuarters) {
+                   InQuarters = Status(Text: "  5: " + getCurrentTime(), bgColor: Colors.Black, fgColor: Colors.Gray)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 108 / 255, green: 117 / 255, blue: 125 / 255), fgColor: .white))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
 
-            Button(action: {
-                self.CallRecdText = "CALL REC'D"
-                self.EnrouteText = "ENROUTE"
-                self.AtSceneText = "AT SCENE"
-                self.FromSceneText = "FROM SCENE"
-                self.AtDestinationText = "AT DESTINATION"
-                self.InServiceText = "IN SERVICE"
-                self.InQuartersText = "IN QUARTERS"
-            }) {
-                Text("Reset")
+            statusButton(Status: Reset) {
+                     CallRecd = Status(Text: "CALL REC'D",     bgColor: Colors.Magenta, fgColor: Colors.White)
+                      Enroute = Status(Text: "ENROUTE",        bgColor: Colors.Red,     fgColor: Colors.White)
+                      AtScene = Status(Text: "AT SCENE",       bgColor: Colors.Yellow,  fgColor: Colors.Black)
+                    FromScene = Status(Text: "FROM SCENE",     bgColor: Colors.Green,   fgColor: Colors.White)
+                AtDestination = Status(Text: "AT DESTINATION", bgColor: Colors.Blue,    fgColor: Colors.White)
+                    InService = Status(Text: "IN SERVICE",     bgColor: Colors.Cyan,    fgColor: Colors.White)
+                   InQuarters = Status(Text: "IN QUARTERS",    bgColor: Colors.Gray,    fgColor: Colors.White)
             }
-            .buttonStyle(BtnStyle(bgColor: Color(red: 255 / 255, green: 255 / 255, blue: 255 / 255), fgColor: .black))
-            .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .listRowPlatterColor(.clear)
-
+        
         }
         .navigationBarTitle("Times")
         .environment(\.defaultMinListRowHeight, 8)
@@ -141,4 +92,37 @@ struct BtnStyle: ButtonStyle {
             .background(bgColor)
             .cornerRadius(8)
     }
+}
+
+struct Status: Identifiable {
+    let id = UUID()
+    var Text: String
+    var bgColor: Color
+    var fgColor: Color
+}
+
+struct statusButton: View {
+    var Status: Status
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(Status.Text)
+        }
+        .buttonStyle(BtnStyle(bgColor: Status.bgColor, fgColor: Status.fgColor))
+        .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .listRowPlatterColor(.clear)
+    }
+}
+
+enum Colors {
+    static let Black    = Color(red:   0 / 255, green:   0 / 255, blue:   0 / 255) // 30 | 40
+    static let Red      = Color(red: 220 / 255, green:  53 / 255, blue:  69 / 255) // 31 | 41
+    static let Green    = Color(red:  40 / 255, green: 167 / 255, blue:  69 / 255) // 32 | 42
+    static let Yellow   = Color(red: 255 / 255, green: 193 / 255, blue:   7 / 255) // 33 | 43
+    static let Blue     = Color(red:   0 / 255, green: 123 / 255, blue: 255 / 255) // 34 | 44
+    static let Magenta  = Color(red: 215 / 255, green:  10 / 255, blue: 213 / 255) // 35 | 45
+    static let Cyan     = Color(red:  23 / 255, green: 162 / 255, blue: 184 / 255) // 36 | 46
+    static let White    = Color(red: 255 / 255, green: 255 / 255, blue: 255 / 255) // 37 | 47
+    static let Gray     = Color(red: 108 / 255, green: 117 / 255, blue: 125 / 255) // 90 | 100
 }
